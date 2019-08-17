@@ -1,0 +1,22 @@
+<html>
+    <head><title>Formulário</title></head>
+    <body>
+        <script type="text/javascript">
+            function validate_form(formulario){
+                if (formulario.email.value == null ||
+                formulario.email.value == ""){
+                    alert("Email é obrigatorio");
+                    return false; //não submete
+                }
+                else{
+                    return true; // submete
+                }
+            }
+        </script>
+        <form action="submitpage.html" method="POST" onsubmit="return validate_form(this);">
+        Email: <input type="text" name="email" size="30">
+        <input type="submit" value="Submit">
+        </form>
+        
+    </body>
+</html>
