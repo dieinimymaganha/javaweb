@@ -4,12 +4,27 @@
         <script type="text/javascript">
             var d = new Date();
             var hora = d.getHours();
+            var dia = d.getDay();
 
             if (hora < 19){
                 document.write("Agora é de dia.");
             }
             else{
                 document.write("Agora é de noite");
+            }
+
+            switch (dia){
+                case 5:
+                    document.write("Sextou!!!")
+                    break;
+                case 6:
+                    document.write("Sábado!!!");
+                    break;
+                case 0:
+                    document.write("Já domingo???")
+                    break;
+                default:
+                    document.write("Esperando o final de semana!")
             }
         </script>
     </body>
