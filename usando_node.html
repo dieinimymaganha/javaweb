@@ -1,0 +1,23 @@
+<html>
+    <head><title>Teste elementos</title></head>
+    <p id="prim">Texto Original</p>
+    <div id="meudiv"><h1 id="teste1"></h1><h1 id="teste2"></h1><h1 id="teste3"></h1></div>
+
+    <script type="text/javascript">
+        x = document.getElementById("prim");
+        document.write("Texto original" + x.innerHTML);
+        x.innerHTML = "****Alterado****";
+
+        document.write("<br/>" + x.innerHTML);
+        x = document.getElementById("teste1");
+        document.write("<br/> Conteudo H1" + x.firstChild.nodeValue);
+
+
+        x = document.getElementById("meudiv");
+        document.write("<br/> Primeiro: " + x.childNodes[0].innerHTML);
+        document.write("<br/> Primeiro" + x.firstChild.innerHTML);
+        document.write("<br/> Ultimo: " + x.childNodes[x.childNodes.length - 1].innerHTML);
+        document.write("<br/> Ultimo: " + x.lastChild.innerHTML)
+    
+    </script>
+</html>
