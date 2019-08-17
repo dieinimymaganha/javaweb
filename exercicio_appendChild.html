@@ -1,0 +1,20 @@
+<html><head><title>Exericicio</title></title:></head></html>
+
+<body>
+    <ul id="lista1"><li>Item 1</li><li>Item 2</li></ul>
+    <ul id="lista2"><li>Item 3</li><li>Item 4</li></ul>
+    <button onclick="mover()">Mover</button>
+    <button onclick="voltar()">Voltar</button>
+
+    <script type="text/javascript">
+        function mover(){
+            x = document.getElementById("lista1").lastChild;
+            document.getElementById("lista2").appendChild(x);
+        }
+
+        function voltar(){
+            x = document.getElementById("lista2").lastChild;
+            document.getElementById("lista1").appendChild(x);
+        }
+    </script>
+</body>
