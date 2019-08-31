@@ -6,9 +6,9 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dieinimy
  */
-@WebServlet(urlPatterns = {"/Leitura"})
-public class Leitura extends HttpServlet {
+@WebServlet(urlPatterns = {"/Processa"})
+public class Processa extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,20 +31,27 @@ public class Leitura extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html");
         
-        
-        Cookie[] cookies = request.getCookies();
-        
-        out.println("<html><head><title>Teste</title></head>");
-        out.println("<body>Cookies:<br/>");
-        
-        for (Cookie c : cookies){
-            out.println(c.getName() + ": " + c.getValue() + "<br/>");
+        String str = request.getParameter("grupo");
+        if (str.equals("incl")){
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/html");
+            out.println("<html><head>");
+            out.println("<title>Teste</title></head><body>");
+            out.println("<h1>Teste de Include - ANTES</h1>");
+            
+            RequestDispatcher rd = getServletContext().
+                    getRequestDispatcher("/include.jsp");
+            rd.include(request, response);
+            
+            out.println("<h1>Teste de include - DEPOIS </h1>");
+            out.println("</body></html>");
         }
-        out.println("</body></html>");
-        out.flush();
+        else{
+            RequestDispatcher rd = getServletContext().
+                    getRequestDispatcher("/forward.jsp");
+            rd.forward(request, response);
+        }
         
     }
 

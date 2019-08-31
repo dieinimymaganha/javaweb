@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dieinimy
  */
-@WebServlet(urlPatterns = {"/Leitura"})
-public class Leitura extends HttpServlet {
+@WebServlet(urlPatterns = {"/ErroServlet"})
+public class ErroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,21 +30,21 @@ public class Leitura extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html");
         
+        String mensagem = (String)request.getAttribute("msg");
         
-        Cookie[] cookies = request.getCookies();
-        
-        out.println("<html><head><title>Teste</title></head>");
-        out.println("<body>Cookies:<br/>");
-        
-        for (Cookie c : cookies){
-            out.println(c.getName() + ": " + c.getValue() + "<br/>");
+        response.setContentType("text/html;charset=UTF-8");
+        try(PrintWriter out = response.getWriter()){
+            out.println("<!DOCTYPE html>");
+            out.println("<html><head>");
+            out.println("<title>Servlet ErroServlet</title>");
+            out.println("</head><body>");
+            
+            out.println("<h1>Mensagem</h1>");
+            out.println("<h2>" + mensagem + "</h2>");
+            
+            out.println("</body></html>");
         }
-        out.println("</body></html>");
-        out.flush();
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
