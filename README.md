@@ -1,6 +1,10 @@
 **Teste**
 
-*Pesquisar sobre implementação MVC*
+*Pesquisar sobre:*
 
-*Composite* > Uma maneira de se programar as classes
+- [] MVC
+- [] SingleTon
+- [] Strategy
+- [] Composite
+
 
