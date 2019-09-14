@@ -2,9 +2,9 @@
 
 *Pesquisar sobre:*
 
-- [] MVC
-- [] SingleTon
-- [] Strategy
-- [] Composite
+- [x] MVC
+- [ ] SingleTon
+- [ ] Strategy
+- [ ] Composite
 
 
