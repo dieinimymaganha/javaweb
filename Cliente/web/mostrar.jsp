@@ -1,0 +1,13 @@
+<body>
+    <h1>Dados</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+        </tr>
+        <tr>
+            <td>${pessoa.nome}</td>
+            <td>${pessoa.email}</td>
+        </tr>
+    </table>
+</body>
